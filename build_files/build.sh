@@ -36,7 +36,7 @@ repo_gpgcheck=1
 EOF
 
 # Workaround for nerbird bug: https://github.com/netbirdio/netbird/issues/5068
-dnf5 download netbird --arch x86_64
+dnf5 download netbird --assumeyes --arch x86_64
 rpm -i --noscripts netbird_*_linux_amd64.rpm
 rm -f netbird_*_linux_amd64.rpm
 tee /etc/systemd/system/netbird.service <<EOF
