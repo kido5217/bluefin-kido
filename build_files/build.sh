@@ -22,3 +22,19 @@ dnf5 install -y tmux
 #### Example for enabling a System Unit File
 
 systemctl enable podman.socket
+
+## netbird
+
+tee /etc/yum.repos.d/netbird.repo <<EOF
+[netbird]
+name=netbird
+baseurl=https://pkgs.netbird.io/yum/
+enabled=1
+gpgcheck=0
+gpgkey=https://pkgs.netbird.io/yum/repodata/repomd.xml.key
+repo_gpgcheck=1
+EOF
+
+dnf config-manager addrepo --from-repofile=/etc/yum.repos.d/netbird.repo
+dnf install netbird
+systemctl enable netbird
