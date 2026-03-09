@@ -36,5 +36,5 @@ repo_gpgcheck=1
 EOF
 
 #dnf config-manager addrepo --from-repofile=/etc/yum.repos.d/netbird.repo
-dnf install netbird
+dnf5 --assumeyes install netbird
 systemctl enable netbird
