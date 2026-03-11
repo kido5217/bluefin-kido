@@ -72,6 +72,22 @@ rm -rf /var/home/linuxbrew
 
 ## Add nix packet manager
 
+mkdir -p /var/nix
+tee /etc/systemd/system/netbird.service <<EOF
+[Unit]
+Description=Bind mount for /nix
+Before=nix-daemon.service  # Укажите сервисы, которые требуют наличия /nix
+
+[Mount]
+What=/var/nix
+Where=/nix
+Type=none
+Options=bind
+
+[Install]
+WantedBy=multi-user.target
+EOF
+systemctl enable nix.mount
 dnf5 install --assumeyes nix
 systemctl enable nix-daemon
 
