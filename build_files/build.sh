@@ -69,3 +69,12 @@ dnf5 remove --assumeyes tailscale
 ## Remove homebrew
 
 rm -rf /var/home/linuxbrew
+
+## Add nix packet manager
+
+dnf5 install --assumeyes nix
+systemctl enable nix-daemon
+
+## Cleanup
+
+dnf5 clean all
