@@ -101,7 +101,7 @@ dnf5 remove --assumeyes docker-ce docker-ce-cli docker-ce-rootless-extras docker
 ## Enable docker compatibility for podman
 
 dnf5 install --assumeyes podman-docker podman-compose
-echo "DOCKER_HOST=unix://$XDG_RUNTIME_DIR/podman/podman.sock" >> /etc/environment
+echo 'DOCKER_HOST=unix://$XDG_RUNTIME_DIR/podman/podman.sock' >> /etc/environment
 
 ## Cleanup
 
