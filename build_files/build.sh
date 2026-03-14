@@ -94,6 +94,11 @@ systemctl enable nix-daemon
 systemctl disable mcelog
 dnf5 remove --assumeyes mcelog
 
+## Enable docker compatibility for podman
+
+dnf5 install --assumeyes podman-docker podman-compose
+echo "DOCKER_HOST=unix://$XDG_RUNTIME_DIR/podman/podman.sock" >> /etc/environment
+
 ## Cleanup
 
 dnf5 clean all
